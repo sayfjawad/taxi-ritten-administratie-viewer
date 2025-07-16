@@ -142,36 +142,45 @@ De applicatie verwacht XML bestanden met de volgende structuur:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<envelop xmlns="http://www.taxicentrale.nl/schema/ritadministratie">
-    <ritadministratie>
-        <vervoerder>
-            <ondernemerskaart>
-                <rit>
-                    <data>
-                        <rtVgNr>12345</rtVgNr>
-                        <datTdReg>2024-01-15T10:30:00</datTdReg>
-                        <type>TAXI</type>
-                        <bestuurder>
-                            <chIdNr>D001</chIdNr>
-                        </bestuurder>
-                        <kmStdBeg>125000</kmStdBeg>
-                        <kmStdEnd>125025</kmStdEnd>
-                        <prijs>35.50</prijs>
-                        <locBeg>
-                            <lat>52.3676</lat>
-                            <lon>4.9041</lon>
-                        </locBeg>
-                        <locEnd>
-                            <lat>52.3702</lat>
-                            <lon>4.8952</lon>
-                        </locEnd>
-                    </data>
-                </rit>
+<Envelope xmlns="urn:envelope">
+    <Ritadministratie xmlns="http://www.ritadministratie.org" Id="idGegevenslevering">
+        <!-- ... andere elementen ... -->
+        <Vervoerder>
+            <!-- ... andere elementen ... -->
+            <Ondernemerskaart>
+                <!-- ... andere elementen ... -->
+                <Rit>
+                    <Data Id="idData">
+                        <RtVgNr>711</RtVgNr>
+                        <MtCd>I</MtCd>
+                        <DatTdReg>2025-06-28T12:06:45.000Z</DatTdReg>
+                        <Type>O</Type>
+                        <LocBeg>
+                            <Lat>51.997459</Lat>
+                            <Lon>5.250317</Lon>
+                        </LocBeg>
+                        <DatTdBeg>2025-06-28T12:06:41.000Z</DatTdBeg>
+                        <KmStdBeg>389912</KmStdBeg>
+                        <LocEnd>
+                            <Lat>51.997458</Lat>
+                            <Lon>5.250315</Lon>
+                        </LocEnd>
+                        <DatTdEnd>2025-06-28T12:06:45.000Z</DatTdEnd>
+                        <KmStdEnd>389912</KmStdEnd>
+                        <Prijs>0</Prijs>
+                        <Bestuurder>
+                            <ChIdNr>218996779</ChIdNr>
+                            <CkVgNr>00001</CkVgNr>
+                        </Bestuurder>
+                    </Data>
+                    <!-- ... andere elementen ... -->
+                </Rit>
                 <!-- Meer ritten... -->
-            </ondernemerskaart>
-        </vervoerder>
-    </ritadministratie>
-</envelop>
+            </Ondernemerskaart>
+        </Vervoerder>
+    </Ritadministratie>
+    <!-- ... andere elementen ... -->
+</Envelope>
 ```
 
 ## Voorbeeld Data
@@ -287,4 +296,7 @@ Voor vragen of problemen:
 - Online data viewer met zoek en filter opties
 - Excel export functionaliteit
 - Responsive design voor alle apparaten
+
+### Versie 1.0.1
+- Aangepaste XML parsing logica voor nieuwe XML structuur (namespace `http://www.ritadministratie.org` en elementnamen zoals `Rit`, `Data`, `RtVgNr`, `DatTdReg`, `Type`, `Bestuurder`, `ChIdNr`, `KmStdBeg`, `KmStdEnd`, `Prijs`, `LocBeg`, `Lat`, `Lon`, `LocEnd`).
 
